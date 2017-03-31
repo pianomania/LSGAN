@@ -1,3 +1,3 @@
 # LSGAN
-least square GAN implemented by tensorflow
-[a link](https://arxiv.org/abs/1611.04076v2)
+Least Square GAN implemented by tensorflow  <br />
+[paper](https://arxiv.org/abs/1611.04076v2)
