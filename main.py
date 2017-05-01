@@ -1,6 +1,6 @@
 import tensorflow as tf
 import numpy as np
-from cifar10 import cifar10
+from load_data import load_data
 from model import GAN
 from trainer import (Trainer, save_generated_examples)
 import os
@@ -9,29 +9,34 @@ from config import *
 import argparse
 
 parser = argparse.ArgumentParser(description='Specify Training flag')
-parser.add_argument('--training', type=bool, metavar='T')
+parser.add_argument('--training', type=int, metavar='T')
+parser.add_argument('--dataset', type=str, metavar='S')
 args = parser.parse_args()
 
-def main(training):
+def main(args):
   
   with tf.Session() as sess:
 
-    if training == True:
+    training = args.training
+    dataset_name = args.dataset
+
+
+    if training == 1:
       if os.path.exists(summary_path):
         for fname in os.listdir(summary_path):
           os.remove(summary_path+'/'+fname)
       else:
         os.mkdir(path)
 
-      cifar10_dataset = cifar10(bs=batch_size)
+      dataset = load_data(dataset_name, bs=batch_size)
       gan = GAN()
-      trainer = Trainer(gan, sess, cifar10_dataset, 200)
+      trainer = Trainer(gan, sess, dataset, 200)
       init = tf.global_variables_initializer()
 
       sess.run(init)
       trainer.train()
 
-    elif training == False:
+    elif training == 0:
 
       gan = GAN()
       saver = tf.train.Saver()
@@ -42,4 +47,4 @@ def main(training):
       save_generated_examples(image, 'examples') 
 
 if __name__ == '__main__':
-  main(args.training)
+  main(args)

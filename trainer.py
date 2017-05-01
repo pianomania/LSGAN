@@ -24,8 +24,8 @@ class Trainer(object):
       self.D_global_step = tf.Variable(0.0, trainable=False, name='D_global_step')
       self.G_global_step = tf.Variable(0.0, trainable=False, name='G_global_step')
 
-      self.D_lr = tf.train.polynomial_decay(0.0002, self.G_global_step, 200000, 0.0001)
-      self.G_lr = tf.train.polynomial_decay(0.001, self.G_global_step, 200000, 0.0005)
+      self.D_lr = tf.train.polynomial_decay(0.0002, self.G_global_step, 200000, 0.00002)
+      self.G_lr = tf.train.polynomial_decay(0.001, self.G_global_step, 200000, 0.0001)
       self.optD = tf.train.AdamOptimizer(self.D_lr, name='D_Optimizer', epsilon=1e-6, beta1=0.5, beta2=0.99)
       self.optG = tf.train.AdamOptimizer(self.G_lr, name='G_Optimizer', epsilon=1e-6, beta1=0.5, beta2=0.99)      
       
