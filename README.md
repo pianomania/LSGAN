@@ -7,3 +7,12 @@
 - python 2.7
 - tensorflow 1.0
 - matplotlib
+## Results
+- generated image
+<img src="./assets/examples.jpg" width="600" hight='250'>
+
+- discriminator loss
+<img src="./assets/dloss.jpg" width="600" hight='250'>
+
+- generator loss
+<img src="./assets/gloss.jpg" width="600" hight='250'>
