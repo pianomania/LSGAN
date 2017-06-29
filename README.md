@@ -9,7 +9,7 @@
 - matplotlib
 ## Results
 - generated image
-<img src="./assets/examples.png" width="600" hight='250'>
+<img src="./assets/examples.png" width="400" hight='180'>
 
 - discriminator loss
 <img src="./assets/dloss.png" width="600" hight='250'>
