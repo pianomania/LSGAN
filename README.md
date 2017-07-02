@@ -1,5 +1,5 @@
 # LSGAN
-[Least Square GAN](https://arxiv.org/abs/1611.04076v2) implemented by tensorflow  <br />
+A TensorFlow implementation of [Least Squares Generative Adversarial Networks](https://arxiv.org/abs/1611.04076v2) <br />
 ## Environments
 - Ubuntu 16.04
 - GeForce GTX 1070
